@@ -5,7 +5,7 @@ const Link = (props) => {
   return (
     <div>
       <div>
-        {link.description} ({link.url})
+        {link.description} ({link.url}) by {link.postedBy.username}
       </div>
     </div>
   );

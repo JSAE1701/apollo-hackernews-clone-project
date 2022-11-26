@@ -3,11 +3,14 @@ import Link from './Link';
 import { useQuery, gql } from '@apollo/client';
 
 const LINKS_QUERY = gql`
-{
+query {
     links {
       id
       url
       description
+      postedBy {
+        username
+      }
     }
   }`
 
@@ -19,7 +22,7 @@ const LinkList = () => {
       {data && (
         <>
           {data.links.map((link) => (
-            <Link key={link.id} link={link} />
+            <Link key={link.id} link={link} postedBy={link.postedBy.username} />
           ))}
         </>
       )}
